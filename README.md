@@ -26,7 +26,7 @@ git add .
 
 git commit -m "first commit"
 
-# One-Liner to update Readne.files
+# One-Liner to update Readme.md files
 git add . && git commit -m "README updated"
 
 git remote add origin https://github.com/Raj-Narayanan-B/simple-dvc-demo.git
