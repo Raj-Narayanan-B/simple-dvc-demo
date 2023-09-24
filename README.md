@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 
 Dataset from:
-https://drive.google.com/d rive/ folders/ 18zq0iCJVgF7uzXqfbIJ
+https://drive.google.com/drive/folders/18zq0iCJVgF7uzXqfbIJ
 
 git init
 
