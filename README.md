@@ -26,11 +26,36 @@ git add .
 
 git commit -m "first commit"
 
-# One-Liner to update Readme.md files
+One-Liner to update Readme.md files
+```bash
 git add . && git commit -m "README updated"
-
 git remote add origin https://github.com/Raj-Narayanan-B/simple-dvc-demo.git
-
 git branch -M main
-
 git push origin main
+```
+
+TOX Command
+
+```bash
+tox
+```
+
+for rebuilding
+```bash
+tox -r
+```
+
+pytest command
+```bash
+pytest -v
+```
+
+setup commands
+```bash
+pip install -e .
+```
+
+Build your own package commands
+```bash
+python setup.py sdist bdist_wheel
+```
