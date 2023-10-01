@@ -14,8 +14,6 @@ template_dir = os.path.join(webapp_root,"templates")
 app=Flask(__name__, static_folder=static_dir, template_folder=template_dir)
 
 
-
-
 @app.route("/", methods=["POST","GET"]) # type: ignore
 def index():
     if request.method=="POST":
@@ -33,7 +31,8 @@ def index():
         except Exception as e:
             print(e)
             #error={"error":"Something went wrong!! Try Again."}
-            return render_template("404.html",error=e)
+            error={"error":e}
+            return render_template("404.html",error=error)
     
     else:
         return render_template("index.html")
