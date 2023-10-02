@@ -57,20 +57,20 @@ TARGET_range = {
 
 def test_form_response_correct_range(data=input_data["correct_range"]):
     res = form_response(data)
-    assert  TARGET_range["min"] <= res <= TARGET_range["max"]
+    assert  TARGET_range["min"] <= res <= TARGET_range["max"] # type: ignore
 
 def test_api_response_correct_range(data=input_data["correct_range"]):
     res = api_response(data)
-    assert  TARGET_range["min"] <= res["response"] <= TARGET_range["max"]
+    assert  TARGET_range["min"] <= res["response"] <= TARGET_range["max"] # type: ignore
 
 def test_form_response_incorrect_range(data=input_data["incorrect_range"]):
-    with pytest.raises(prediction_service.prediction.NotInRange):
+    with pytest.raises(prediction_service.prediction.NotInRange): # type: ignore
         res = form_response(data)
 
 def test_api_response_incorrect_range(data=input_data["incorrect_range"]):
     res = api_response(data)
-    assert res["response"] == prediction_service.prediction.NotInRange().message
+    assert res["response"] == prediction_service.prediction.NotInRange().message# type: ignore
 
 def test_api_response_incorrect_col(data=input_data["incorrect_col"]):
     res = api_response(data)
-    assert res["response"] == prediction_service.prediction.NotInCols().message
+    assert res["response"] == prediction_service.prediction.NotInCols().message# type: ignore
