@@ -17,14 +17,15 @@ split_data:
 estimators:
   ElasticNet:
     params:
-      #  alpha: 0.88
-      #  l1_ratio: 0.89
+
       # alpha: 0.9
       # l1_ratio: 0.4
       # alpha: 0.5
       # l1_ratio: 0.5 
       alpha: 0.3
       l1_ratio: 0.3
+      # alpha: 0.7
+      # l1_ratio: 0.7
            
 model_dir: saved_models
 
@@ -35,7 +36,7 @@ reports:
 webapp_model_dir: prediction_service/model/model.joblib
 
 mlflow_config:
-  artifacts_dir: artifacts
+  #artifacts_dir: artifacts
   experiment_name: ElasticNet Regression
   run_name: mlops
   registered_model_name: ElasticNetWineModel

@@ -55,7 +55,7 @@ def train_and_evaluate(config_path):
 
     mlflow.set_experiment(mlflow_config["experiment_name"])
 
-    with mlflow.start_run(run_name=mlflow_config["run_name"]) as mlops_run:
+    with mlflow.start_run():
         model=ElasticNet(alpha=alpha,l1_ratio=l1_ratio, random_state=random_state)
         model.fit(xtrain,ytrain)
 
@@ -66,10 +66,9 @@ def train_and_evaluate(config_path):
         mlflow.log_param("alpha",alpha)
         mlflow.log_param("l1_ratio",l1_ratio)
 
-        mlflow.log_metric("rmse", rmse) # type: ignore
-        mlflow.log_metric("mae", mae) # type: ignore
-        mlflow.log_metric("r2", r2) # type: ignore
-
+        mlflow.log_metric("rmse", float(rmse)) 
+        mlflow.log_metric("mae", float(mae))
+        mlflow.log_metric("r2", float(r2)) 
 
         # The traditional model logging method below is also going to be commented out.
         # Instead, we will use mlflow.
@@ -92,6 +91,6 @@ def train_and_evaluate(config_path):
 
 if __name__=="__main__":
     args = argparse.ArgumentParser()
-    args.add_argument("--config",default="parameters.yaml")
+    args.add_argument("--config",default="params.yaml")
     parsed_args=args.parse_args()
     train_and_evaluate(config_path=parsed_args.config)

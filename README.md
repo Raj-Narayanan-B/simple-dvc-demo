@@ -63,7 +63,13 @@ python setup.py sdist bdist_wheel
 MLFLOW server command:
 ```bash
 mlflow server \
-    --backend-store-uri sqlite:///mlflow.db \
+    --backend-store-uri sqlite:///mlflow_new.db \
     --default-artifact-root ./artifacts \
     --host 127.0.0.1 -p 1234
+    
 ```
+mlflow server \
+     --backend-store-uri sqlite:///mlflow.db \
+     --default-artifact-root ./mlruns \
+     # --no-serve-artifacts \
+     --host 127.0.0.1 -p 1234
